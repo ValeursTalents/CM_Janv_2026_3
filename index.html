@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Courage Managérial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Calibri', Arial, sans-serif;
+            line-height: 1.6;
+            color: #473c32;
+            background: #f5f5f5;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #473c32 0%, #6b5d4f 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,100 600,300 T1200,300 L1200,600 L0,600 Z" fill="%2394c11f" opacity="0.1"/></svg>') no-repeat center;
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .date-location {
+            background: rgba(148, 193, 31, 0.9);
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section */
+        section {
+            background: white;
+            margin: 40px 0;
+            padding: 50px 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #94c11f;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #ee7601;
+            padding-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* Context Section */
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .context-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #94c11f;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .context-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(148, 193, 31, 0.2);
+        }
+
+        .context-card h3 {
+            color: #ee7601;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        /* Objectives */
+        .objectives-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .objective-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 4px solid #ee7601;
+            transition: all 0.3s ease;
+        }
+
+        .objective-item:hover {
+            background: #94c11f;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .objective-item::before {
+            content: '✓';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #94c11f;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .objective-item:hover::before {
+            background: white;
+            color: #94c11f;
+        }
+
+        /* Accordion */
+        .accordion {
+            margin-top: 30px;
+        }
+
+        .accordion-item {
+            margin-bottom: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            border-color: #94c11f;
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, #473c32 0%, #5a4d42 100%);
+            color: white;
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #94c11f 0%, #a8d435 100%);
+        }
+
+        .accordion-header::after {
+            content: '+';
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active::after {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .accordion-content.active {
+            max-height: 1000px;
+        }
+
+        .accordion-body {
+            padding: 25px;
+        }
+
+        .module-info {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .module-label {
+            font-weight: bold;
+            color: #ee7601;
+        }
+
+        /* Public Section */
+        .public-badge {
+            background: linear-gradient(135deg, #ee7601 0%, #ff9033 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+
+        /* Map Section */
+        .map-container {
+            margin-top: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        /* Download Buttons */
+        .download-section {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #94c11f 0%, #a8d435 100%);
+            color: white;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(148, 193, 31, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(148, 193, 31, 0.5);
+            background: linear-gradient(135deg, #a8d435 0%, #94c11f 100%);
+        }
+
+        .download-btn.secondary {
+            background: linear-gradient(135deg, #ee7601 0%, #ff9033 100%);
+            box-shadow: 0 5px 15px rgba(238, 118, 1, 0.3);
+        }
+
+        .download-btn.secondary:hover {
+            background: linear-gradient(135deg, #ff9033 0%, #ee7601 100%);
+            box-shadow: 0 8px 25px rgba(238, 118, 1, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: #473c32;
+            color: white;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: #94c11f;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #94c11f;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .tagline {
+                font-size: 1.1em;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .download-section {
+                flex-direction: column;
+            }
+
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <img src="logo.png" alt="Logo" class="logo">
+            <h1>Courage Managérial</h1>
+            <p class="tagline">Osez prendre des décisions audacieuses et inspirez vos équipes dans un monde VUCA</p>
+            <div class="date-location">
+                📅 Mardi 7 janvier 2025 • 5h00 - 13h00<br>
+                📍 3ter avenue des Villages, 44470 Carquefou
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Context Section -->
+        <section>
+            <h2>🎯 Contexte et Enjeux</h2>
+            <div class="context-grid">
+                <div class="context-card">
+                    <h3>Volatilité</h3>
+                    <p>Les changements sont rapides et imprévisibles. Les managers doivent s'adapter en permanence.</p>
+                </div>
+                <div class="context-card">
+                    <h3>Incertitude</h3>
+                    <p>L'avenir est difficile à prévoir. Il faut savoir décider avec des informations incomplètes.</p>
+                </div>
+                <div class="context-card">
+                    <h3>Complexité</h3>
+                    <p>Les situations sont interconnectées et multidimensionnelles, nécessitant une vision globale.</p>
+                </div>
+                <div class="context-card">
+                    <h3>Ambiguïté</h3>
+                    <p>Les relations de cause à effet sont floues. Le courage devient un atout stratégique.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Objectives Section -->
+        <section>
+            <h2>🚀 Objectifs Pédagogiques</h2>
+            <div class="objectives-list">
+                <div class="objective-item">
+                    Comprendre les leviers du courage managérial
+                </div>
+                <div class="objective-item">
+                    Identifier ses freins et construire un plan d'action personnel
+                </div>
+                <div class="objective-item">
+                    Développer son assertivité dans la prise de parole
+                </div>
+                <div class="objective-item">
+                    Mettre en place un climat de confiance favorisant l'innovation
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Section -->
+        <section>
+            <h2>📚 Programme Détaillé</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Module 1 : Fundamentals du courage</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="module-info">
+                                <span class="module-label">⏱️ Durée :</span>
+                                <span>½ journée</span>
+                            </div>
+                            <div class="module-info">
+                                <span class="module-label">📋 Contenu :</span>
+                                <div>
+                                    <p>• Définition du courage managérial</p>
+                                    <p>• Cadre VUCA</p>
+                                    <p>• Étude de cas</p>
+                                </div>
+                            </div>
+                            <div class="module-info">
+                                <span class="module-label">🎓 Méthode :</span>
+                                <span>Apports théoriques, exercices de réflexion</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Module 2 : Connaissance de soi</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="module-info">
+                                <span class="module-label">⏱️ Durée :</span>
+                                <span>½ journée</span>
+                            </div>
+                            <div class="module-info">
+                                <span class="module-label">📋 Contenu :</span>
+                                <div>
+                                    <p>• Identification des valeurs</p>
+                                    <p>• Analyse des situations de zone de confort</p>
+                                    <p>• Plan d'action individuel</p>
+                                </div>
+                            </div>
+                            <div class="module-info">
+                                <span class="module-label">🎓 Méthode :</span>
+                                <span>Tests, retours d'expérience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Module 3 : Communication assertive</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="module-info">
+                                <span class="module-label">⏱️ Durée :</span>
+                                <span>1 journée</span>
+                            </div>
+                            <div class="module-info">
+                                <span class="module-label">📋 Contenu :</span>
+                                <div>
+                                    <p>• Techniques de feedback constructif</p>
+                                    <p>• Gestion des conflits</p>
+                                    <p>• Jeux de rôle</p>
+                                </div>
+                            </div>
+                            <div class="module-info">
+                                <span class="module-label">🎓 Méthode :</span>
+                                <span>Ateliers pratiques</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Module 4 : Leadership inspirant</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <div class="module-info">
+                                <span class="module-label">⏱️ Durée :</span>
+                                <span>1 journée</span>
+                            </div>
+                            <div class="module-info">
+                                <span class="module-label">📋 Contenu :</span>
+                                <div>
+                                    <p>• Posture de leader</p>
+                                    <p>• Narration influente</p>
+                                    <p>• Coaching d'équipe</p>
+                                </div>
+                            </div>
+                            <div class="module-info">
+                                <span class="module-label">🎓 Méthode :</span>
+                                <span>Mises en situation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Section -->
+        <section>
+            <h2>🔧 Méthodologie</h2>
+            <p style="font-size: 1.1em; line-height: 1.8; margin-top: 20px;">
+                Notre approche pédagogique repose sur une <strong>alternance dynamique</strong> entre apports théoriques et exercices pratiques. Les participants travaillent en sous-groupes et en plénières pour favoriser les échanges et l'intelligence collective. Un <strong>support digital complet</strong> est remis à chaque participant pour prolonger l'apprentissage.
+            </p>
+        </section>
+
+        <!-- Public Section -->
+        <section>
+            <h2>👥 Public Visé</h2>
+            <div class="public-badge">
+                Managers de proximité • Chefs de projet • Pilotes d'équipes
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section>
+            <h2>📍 Lieu de Formation</h2>
+            <p style="font-size: 1.2em; text-align: center; margin: 20px 0;">
+                <strong>3ter avenue des Villages</strong><br>
+                44470 Carquefou, France
+            </p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2707.8!2d-1.49!3d47.29!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDE3JzI0LjAiTiAxwrAyOScyNC4wIlc!5e0!3m2!1sfr!2sfr!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <!-- Downloads Section -->
+        <section>
+            <h2>📥 Documentation</h2>
+            <div class="download-section">
+                <a href="programme.pdf" class="download-btn" download>
+                    <span>📄</span>
+                    <span>Télécharger le Programme</span>
+                </a>
+                <a href="livret-stagiaire.pdf" class="download-btn secondary" download>
+                    <span>📘</span>
+                    <span>Télécharger le Livret Stagiaire</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Formateur</h3>
+                <p>Pour toute question sur cette formation, n'hésitez pas à nous contacter.</p>
+                <p>📧 Email : contact@formation.fr</p>
+                <p>📞 Téléphone : 02 XX XX XX XX</p>
+            </div>
+            <div class="footer-section">
+                <h3>Accessibilité & Inclusion</h3>
+                <p>Nous nous engageons à accueillir tous les publics dans les meilleures conditions.</p>
+                <p><a href="#" target="_blank">→ Politique d'inclusion et de gestion du handicap</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Organisme de Formation</h3>
+                <p>Formation certifiée et de qualité, respectant les normes RSE et d'accessibilité.</p>
+                <p style="margin-top: 20px; opacity: 0.7;">© 2025 - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const isActive = header.classList.contains('active');
+                
+                // Close all accordions
+                document.querySelectorAll('.accordion-header').forEach(h => {
+                    h.classList.remove('active');
+                    h.nextElementSibling.classList.remove('active');
+                });
+                
+                // Open clicked accordion if it wasn't active
+                if (!isActive) {
+                    header.classList.add('active');
+                    content.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
